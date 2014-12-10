@@ -5,6 +5,7 @@
     OS: Ubuntu 14.04 LTS
 */
 #include <stdio.h>
+#include <conio.h>
 #define LIM  10 // valoarea maxima a  lui n care poate fi modificata
 
 float  a[LIM][LIM], ratio, det=1;
@@ -30,6 +31,18 @@ void view(){
         printf("\n");
     }
     printf("\n");
+}
+
+//verifica daca exista elemente diferite de 0 in prima coloana si schimba liniile in caz afirmativ
+void ver_zero(){
+    int l,aux;
+    for(i=0;i<n;i++)
+        if(a[i][0]!=0){l=i;break;}else{det=-1;}
+    for(i=0; i<n;i++){
+        aux = a[0][i];
+        a[0][i] = a[l][i];
+        a[l][i] = aux;
+    }
 }
 
 //Functia care converteste matricea initiala in una cu elemente nule coltul sting jos
@@ -60,10 +73,12 @@ int main(){
 
     insert();
     view();
+    ver_zero();
+    view();
     conversion();
     view();
 
     printf("\nDeterminantul matricei: %.2f", determinant());
-
+    getch();
     return 0;
 }
