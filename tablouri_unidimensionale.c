@@ -6,7 +6,6 @@
 */
 
 #include <stdio.h>
-#include <limits.h>
 
 unsigned int i,n;
 int a[10];
