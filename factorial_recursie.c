@@ -14,7 +14,7 @@ int main(){
     printf("Dati n");
     scanf("%d",&n);
 
-    printf("Raspuns: %f",fact(n));
+    printf("Raspuns: %lf",fact(n));
 
     return 0;
 }
