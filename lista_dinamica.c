@@ -39,11 +39,32 @@ void afisare_for(lista *q){
         printf("%d -> ",p->inf);
 }
 
+int sum(lista *q){
+    int s=0;
+    lista *p = q;
+    while(p!=NULL){
+        s+=p->inf;
+        p = p->urm;
+    }
+    return s;
+}
+int max(lista *q){
+    lista *p = q;
+    int max=p->inf;
+    while(p!=NULL){
+        if (p->inf > max)
+            max = p->inf;
+        p = p->urm;
+    }
+    return max;
+}
+
 int main(){
     lista *q;
 
     q = creare();
     afisare(q);
-
+    printf("\nsuma: %d",sum(q));
+    printf("\nmax: %d",max(q));
     return 0;
 }
