@@ -49,7 +49,7 @@ int sum(lista *q){
     return s;
 }
 int max(lista *q){
-    lista *p = q;
+    lista *p = q->urm;
     int max=p->inf;
     while(p!=NULL){
         if (p->inf > max)
@@ -58,6 +58,17 @@ int max(lista *q){
     }
     return max;
 }
+/**
+nou->urm = p->urm;
+p->urm = nou;
+
+
+stergere
+s = p->urm;
+p->urm = s->urm;
+free(s);
+**/
+
 
 int main(){
     lista *q;
