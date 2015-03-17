@@ -25,12 +25,27 @@ lista *creare(){
     return q;
 }
 
+lista *creare_for(int n){
+    lista *p,*q;
+    int i;
+    q=NULL;
+
+    for(i=1;i<=n;i++){
+        p = (lista *)malloc(sizeof(lista));
+        printf("info:");scanf("%d",&p->inf);
+        p->urm = q;
+        q = p;
+    }
+    return q;
+}
+
 void afisare(lista *q){
     lista *p = q;
     while(p!=NULL){
         printf("%d -> ",p->inf);
         p = p->urm;
     }
+    printf("NULL");
 }
 
 void afisare_for(lista *q){
@@ -73,9 +88,10 @@ free(s);
 int main(){
     lista *q;
 
-    q = creare();
+    //q = creare();
+    q = creare_for(3);
     afisare(q);
-    printf("\nsuma: %d",sum(q));
-    printf("\nmax: %d",max(q));
+    //printf("\nsuma: %d",sum(q));
+    //printf("\nmax: %d",max(q));
     return 0;
 }
