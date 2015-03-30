@@ -1,20 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 typedef struct lista{
     int inf;
     struct lista *urm;
 }lista;
-
 lista *q;
-
 lista *insert(lista *q,int poz,int x){
     lista *p,*nou;
     int i;
-
     nou = (lista *)malloc(sizeof(lista));
     nou->inf = x;
-
     if (poz==1){
         nou->urm = q;
         q = nou;
@@ -27,7 +22,6 @@ lista *insert(lista *q,int poz,int x){
     }
     return q;
 }
-
 void afisare(lista *q){
     lista *p = q;
     printf("\n");
@@ -35,7 +29,6 @@ void afisare(lista *q){
         printf("%d -> ",p->inf);
     printf("NULL");
 }
-
 lista *creare(){
     int x,n,i;
     printf("Dati nrumarul de elemente: ");scanf("%d",&n);
@@ -45,11 +38,9 @@ lista *creare(){
     }
     return q;
 }
-
 lista *delete(lista *q,int poz){
     lista *s,*p;
     int i;
-
     if(poz==1){
         s = q;
         q = q->urm;
@@ -65,16 +56,11 @@ lista *delete(lista *q,int poz){
     return q;
 }
 int main(){
-
     q = creare();
-
     afisare(q);
-
     q = delete(q,1);
     afisare(q);
-
     q = insert(q,1,1);
     afisare(q);
-
     return 0;
 }
