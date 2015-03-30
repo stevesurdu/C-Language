@@ -1,9 +1,3 @@
-/*
-    Author: Picaso
-    IDE: Code::Blocks IDE
-    Compiler: GNU GCC Compiler
-    OS: Ubuntu 14.04 LTS
-*/
 #include <stdio.h>
 #include <stdlib.h>
 
