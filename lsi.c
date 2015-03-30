@@ -6,8 +6,7 @@ typedef struct lista{
 }lista;
 lista *q;
 lista *insert(lista *q,int poz,int x){
-    lista *p,*nou;
-    int i;
+    lista *p,*nou;int i;
     nou = (lista *)malloc(sizeof(lista));
     nou->inf = x;
     if (poz==1){
@@ -39,8 +38,7 @@ lista *creare(){
     return q;
 }
 lista *delete(lista *q,int poz){
-    lista *s,*p;
-    int i;
+    lista *s,*p;int i;
     if(poz==1){
         s = q;
         q = q->urm;
@@ -56,11 +54,8 @@ lista *delete(lista *q,int poz){
     return q;
 }
 int main(){
-    q = creare();
-    afisare(q);
-    q = delete(q,1);
-    afisare(q);
-    q = insert(q,1,1);
-    afisare(q);
+    q = creare();afisare(q);
+    q = delete(q,1);afisare(q);
+    q = insert(q,1,1);afisare(q);
     return 0;
 }
