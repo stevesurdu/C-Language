@@ -6,6 +6,8 @@ typedef struct coada{
     struct coada *urm;
 }coada;
 
+int n;
+
 coada *creare(int n){
     coada *prim,*ultim,*p;
     int i;
@@ -34,12 +36,43 @@ void afisare(coada *st){
     }
     printf("NULL");
 }
+coada *pop(coada *c){
+    coada *s;
+    if(c == NULL)
+        printf("\n Coada este vida");
+    else{
+        s = c;
+        c = c -> urm;
+    }
+    n--;
+    return c;
+    free(s);
+}
+coada *push(coada *c, int x){
+    coada *p=c,*nou;
+    nou = (coada*) malloc(sizeof(coada));
+
+    nou -> inf = x;
+    while(p->urm!=NULL)
+        p = p->urm;
+    if(p)
+        p->urm = nou;
+    nou->urm = NULL;
+    n++;
+    return c;
+}
 int main(){
     coada *c;
-    int n;
     printf("n=");
     scanf("%d",&n);
+
     c = creare(n);
+    afisare(c);
+
+    c = push(c,111);
+    afisare(c);
+
+    c = pop(c);
     afisare(c);
 
     return 0;
