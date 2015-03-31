@@ -55,9 +55,11 @@ coada *push(coada *c, int x){
     nou -> inf = x;
     while(p->urm!=NULL)
         p = p->urm;
+    nou->urm = NULL;
     if(p)
         p->urm = nou;
-    nou->urm = NULL;
+    else
+        c = nou;
     n++;
     return c;
 }
