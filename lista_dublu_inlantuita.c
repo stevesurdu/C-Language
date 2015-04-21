@@ -70,17 +70,30 @@ listad *inserare(listad *q,int poz,int x){
     n++;
     return q;
 }
-/*listad *stergere(){
-    listad *p = q;
+listad *stergere(listad *q,int poz){
+    listad *p,*s;
+    int i;
 
-    s = p->next;
-    p->next = s->next;
-    s->next->prev = p;
-
-    free(s);
-
+    if(q==NULL)printf("\nLista Vida");
+    else{
+        if(poz==1){
+            s = q;
+            q = q->next;
+            if(q) q->prev =NULL;
+            free(s);
+        }else{
+            p =q;
+            for(i=1;i<poz-1;i++)
+                p = p->next;
+            s = p->next;
+            p->next = s->next;
+            s->next->prev = p;
+            free(s);
+        }
+        n--;
+    }
     return q;
-}*/
+}
 int main(){
     listad *q;
     q = creare();
@@ -89,6 +102,11 @@ int main(){
     printf("\nLungimea listei:%d",n);
 
     q = inserare(q,3,100);
+    afisareSD(q);
+    afisareDS(q);
+    printf("\nLungimea listei:%d",n);
+
+    q = stergere(q,3);
     afisareSD(q);
     afisareDS(q);
     printf("\nLungimea listei:%d",n);
