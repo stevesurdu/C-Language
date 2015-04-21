@@ -94,7 +94,7 @@ listad *stergere(listad *q,int poz){
     }
     return q;
 }
-void stergere_negative(listad *q){
+listad *stergere_negative(listad *q){
     listad *p = q;
     FILE *f;
     int k=1;
@@ -111,6 +111,7 @@ void stergere_negative(listad *q){
             k++;
         }
     }
+    fclose(f);
 }
 int main(){
     listad *q;
