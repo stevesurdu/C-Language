@@ -94,22 +94,32 @@ listad *stergere(listad *q,int poz){
     }
     return q;
 }
+void stergere_negative(listad *q){
+    listad *p = q;
+    FILE *f;
+    int k=1;
+
+    f = fopen("lista.txt","w");
+
+    while(p){
+        if(p->inf<0){
+            p = p->next;
+            q = stergere(q,k);
+        }else{
+            fprintf(f,"%d ",p->inf);
+            p = p->next;
+            k++;
+        }
+    }
+}
 int main(){
     listad *q;
     q = creare();
     afisareSD(q);
-    afisareDS(q);
     printf("\nLungimea listei:%d",n);
 
-    q = inserare(q,3,100);
+    stergere_negative(q);
     afisareSD(q);
-    afisareDS(q);
-    printf("\nLungimea listei:%d",n);
-
-    q = stergere(q,3);
-    afisareSD(q);
-    afisareDS(q);
-    printf("\nLungimea listei:%d",n);
 
     return 0;
 }
