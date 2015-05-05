@@ -1,8 +1,5 @@
 #include <stdio.h>
 
-int a[10][10];
-int n;
-
 void citire(int a[10][10],int n){
     FILE *f;
     int i,j;
@@ -17,6 +14,7 @@ void citire(int a[10][10],int n){
     }
     fclose(f);
 }
+
 void afisare(int a[10][10],int n){
     FILE *f;
     int i,j;
@@ -42,13 +40,13 @@ void warshall(int a[10][10],int n){
 
 }
 main(){
-
-    n=4;
+    int a[10][10];
+    int n=4;
 
     citire(a,n);
-    //afisare(a,n);
+    afisare(a,n);
 
-    //warshall(a,n);
+    warshall(a,n);
 
 
     return 0;
